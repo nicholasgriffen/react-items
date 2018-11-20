@@ -7,7 +7,6 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: 3,
       items: [
         { id: 0, item: 'Old AM radio', reason: 'Coast to Coast' },
         { id: 1, item: 'Shovel', reason: 'Find underground telephone wires' },
@@ -25,11 +24,14 @@ class App extends Component {
   }
 
   onAddItem = ({ item, reason }) => {
-    const newItem = { item, reason, id: this.state.id}
+    const nextId = this.state.items.reduce((acc, el) => (
+      Math.max(acc, el.id)
+    ), 0) + 1
+    const newItem = { item, reason, id: nextId}
+
     this.setState({
       ...this.state, 
       items: [...this.state.items, newItem],
-      id: this.state.id + 1
     })
   }
   
