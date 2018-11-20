@@ -2,7 +2,7 @@ import React from 'react'
 import Item from '../Item/Item'
 const ItemList = ({ items }) => (
         <ul>
-            { items.map(item => <Item item={item} />) }
+            { items.map((item, index) => <Item item={item} key={index}/>) }
         </ul>
     )
 
