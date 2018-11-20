@@ -15,7 +15,11 @@ class App extends Component {
   }
 
   onDeleteItem = ({ id }) => {
-    console.log('Got a request to delete ', id)
+    const newItems = this.state.items.filter(item => item.id !== id)
+    this.setState({
+      ...this.state, 
+      items: newItems
+    })
   }
   
   render() {
