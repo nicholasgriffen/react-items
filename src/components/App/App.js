@@ -14,10 +14,14 @@ class App extends Component {
     }
   }
 
+  onDeleteItem = ({ id }) => {
+    console.log('Got a request to delete ', id)
+  }
+  
   render() {
     return (
       <div className="App">
-       <ItemList items={this.state.items}/>      
+       <ItemList items={this.state.items} onDeleteItem={this.onDeleteItem}/>      
        </div>
     )
   }
